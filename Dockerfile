@@ -1,4 +1,3 @@
-LABEL authors="maximo"
 # Use the official Python image.
 # The slim version reduces image size by removing unnecessary files.
 FROM python:3.10-slim
