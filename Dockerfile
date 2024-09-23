@@ -15,8 +15,8 @@ RUN pip install --upgrade pip && pip install -r requirements.txt
 COPY . .
 
 # Set environment variables for Django
-ENV PYTHONDONTWRITEBYTECODE 1
-ENV PYTHONUNBUFFERED 1
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
 
 # Set environment variables for Django settings (replace as needed)
 ENV DJANGO_SETTINGS_MODULE=kidsdiy.settings
