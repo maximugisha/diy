@@ -1,7 +1,7 @@
 from rest_framework import serializers
 from .models import Post
 from common.models import ImageUpload
-from common.serializers import MinimalUploadSerializer
+from common.serializers import ImageUploadSerializer
 from account.serializers import UserProfileSerializer
 
 
@@ -32,7 +32,7 @@ class PostSerializer(serializers.ModelSerializer):
 
     def to_representation(self, instance):
         representation = super().to_representation(instance)
-        img = MinimalUploadSerializer(
+        img = ImageUploadSerializer(
             instance=instance.images, many=True
         )
         representation["images"] = [image["image"] for image in img.data]
