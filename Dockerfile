@@ -2,21 +2,21 @@
 # The slim version reduces image size by removing unnecessary files.
 FROM python:3.10-slim
 
+# Set environment variables for Django
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
+
 # Set the working directory in the container
 WORKDIR /app
 
 # Copy the requirements file to the container
 COPY requirements.txt .
-COPY /static .
+
 # Install dependencies
 RUN pip install --upgrade pip && pip install -r requirements.txt
 
 # Copy the rest of the application code to the container
 COPY . .
-
-# Set environment variables for Django
-ENV PYTHONDONTWRITEBYTECODE=1
-ENV PYTHONUNBUFFERED=1
 
 # Set environment variables for Django settings (replace as needed)
 ENV DJANGO_SETTINGS_MODULE=kidsdiy.settings
@@ -30,5 +30,5 @@ RUN python manage.py migrate
 # Expose the port on which the Django app will run
 EXPOSE 8000
 
-# Set the entry point to run the Django development server
-CMD ["gunicorn", "--bind", "0.0.0.0:8000", "kidsdiy.wsgi:application"]
+# Run gunicorn with whitenoise serving static files
+CMD ["gunicorn", "--bind", "0.0.0.0:8000", "--workers", "3", "kidsdiy.wsgi:application"]

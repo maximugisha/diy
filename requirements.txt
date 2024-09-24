@@ -10,3 +10,4 @@ tzdata==2024.1
 gunicorn
 python-decouple
 drf-yasg
+whitenoise
