@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'drf_yasg',
+    'corsheaders',
     'rest_framework_simplejwt.token_blacklist',
     'posts.apps.PostsConfig',
     "common.apps.CommonConfig",
@@ -48,6 +49,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',  # Add this
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -57,6 +59,15 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+# Allow all or specific origins
+CORS_ALLOWED_ORIGINS = [
+    'http://localhost:3000',  # If you're running Next.js on localhost
+    'https://your-frontend-domain.com',  # Add your production domain if needed
+]
+
+# If you want to allow all origins
+CORS_ALLOW_ALL_ORIGINS = True
 
 ROOT_URLCONF = 'kidsdiy.urls'
 
