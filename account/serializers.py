@@ -23,11 +23,11 @@ class UserProfileSerializer(serializers.ModelSerializer):
         representation['role'] = instance.role.name if instance.role else None
         representation['organization'] = instance.organization.name if instance.organization else None
         representation['interests'] = [interest.name for interest in instance.interests.all()] if instance.interests else None
-        profile_pic = ImageUpload.objects.get(id=instance.profile_picture)
-        profile_pic = ImageUploadSerializer(instance=profile_pic).data['images']
-        if profile_pic:
+        try:
+            profile_pic = ImageUpload.objects.get(id=instance.profile_picture)
+            profile_pic = ImageUploadSerializer(instance=profile_pic).data['images']
             representation['profile_picture'] = profile_pic[0]
-        else:
+        except Exception:
             representation['profile_picture'] = "/media/uploads/no_profile_Pic.jpeg"
         return representation
 
