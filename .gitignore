@@ -5,3 +5,4 @@ media/*
 */__pycache__/*
 !/media/no_profile_Pic.jpeg
 static
+ **/migrations/__pycache__/**
