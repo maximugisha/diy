@@ -12,3 +12,4 @@ python-decouple
 drf-yasg
 whitenoise
 django-cors-headers
+django-richtextfield

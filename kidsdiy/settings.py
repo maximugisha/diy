@@ -45,7 +45,8 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt.token_blacklist',
     'posts.apps.PostsConfig',
     "common.apps.CommonConfig",
-    "account.apps.AccountConfig"
+    "account.apps.AccountConfig",
+    'djrichtextfield',
 ]
 
 MIDDLEWARE = [
@@ -111,6 +112,16 @@ DATABASES = {
     }
 }
 
+DJRICHTEXTFIELD_CONFIG = {
+    'js': ['//cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js'],
+    'init_template': 'djrichtextfield/init/tinymce.js',
+    'settings': {
+        'menubar': False,
+        'plugins': 'link image',
+        'toolbar': 'bold italic | link image | removeformat',
+        'width': 700
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
