@@ -6,3 +6,4 @@ media/*
 !/media/no_profile_Pic.jpeg
 static
  **/migrations/__pycache__/**
+db.sqlite3
