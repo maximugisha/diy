@@ -13,4 +13,4 @@ drf-yasg
 whitenoise
 django-cors-headers
 django-richtextfield
-psycopg2
+psycopg2-binary #for docker
