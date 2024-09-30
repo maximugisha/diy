@@ -1,0 +1,20 @@
+DEBUG=False
+ALLOWED_HOSTS=.127.0.0.1, .147.182.223.147, .cranecloud.io, .kids-49ee77c1-f112-45e6-9897.renu-01.cranecloud.io
+CSRF_TRUSTED_ORIGINS=https://kids-49ee77c1-f112-45e6-9897.renu-01.cranecloud.io, https://maximo.ug
+CSRF_COOKIE_SECURE=True
+
+#Production
+DB_NAME=plqarwnrruzrwkzjeevnmjol
+DB_USER=hoieipwemizldozv
+DB_PASSWORD=^urQt9Fiv#u>ePE#>91aA-%MFV7VpWpM
+DB_HOST=102.134.147.233
+DB_PORT=32761
+
+#development
+#DB_NAME=new_kids
+#DB_USER=maximo
+#DB_PASSWORD=UPbeat123
+#DB_HOST=127.0.0.1
+#DB_PORT=5432
+
+DEFAULT_PROFILE_PICTURE=e71b4440-5b77-4bc2-8a95-bb8025d4dff5
