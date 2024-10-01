@@ -66,8 +66,7 @@ MIDDLEWARE = [
 
 # Allow all or specific origins
 CORS_ALLOWED_ORIGINS = [
-    'http://localhost:3000',  # If you're running Next.js on localhost
-    'https://your-frontend-domain.com',  # Add your production domain if needed
+    'http://127.0.0.1:3000', 'http://147.182.223.147:3000'
 ]
 
 # If you want to allow all origins
@@ -174,7 +173,7 @@ USE_TZ = True
 STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Enable GZip compression for better performance
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
