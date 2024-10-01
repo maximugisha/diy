@@ -68,7 +68,7 @@ class Resource(BaseModel):
     title = models.CharField(max_length=255)
     type = models.CharField(choices=Type.choices, max_length=20, default=Type.pdf)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    content = RichTextField()
+    content = models.TextField()
     attachment = models.FileField(upload_to="attachments", validators=[
         validate_file_extension, validate_file_size])
     attachment_name = models.CharField(max_length=255)
