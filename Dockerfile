@@ -17,7 +17,7 @@ COPY requirements.txt /app/
 RUN pip install --upgrade pip && pip install --no-cache-dir -r requirements.txt
 
 # Copy the rest of the application code to the container
-COPY . /app/
+COPY --chown=django:django . /app/
 
 # Set environment variables for Django settings (replace as needed)
 ENV DJANGO_SETTINGS_MODULE=kidsdiy.settings
