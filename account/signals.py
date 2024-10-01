@@ -12,4 +12,4 @@ def get_default_profile_picture():
 @receiver(post_save, sender=User)
 def create_user_profile(sender, instance, created, **kwargs):
     if created:
-        UserProfile.objects.get_or_create(user=instance, profile_picture=get_default_profile_picture)
+        UserProfile.objects.get_or_create(user=instance, profile_picture=get_default_profile_picture())
