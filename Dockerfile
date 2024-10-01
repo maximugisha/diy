@@ -13,10 +13,11 @@ WORKDIR /app
 COPY requirements.txt .
 
 # Install dependencies
-RUN pip install --upgrade pip && pip install -r requirements.txt
+COPY requirements.txt /app/
+RUN pip install --upgrade pip && pip install --no-cache-dir -r requirements.txt
 
 # Copy the rest of the application code to the container
-COPY . .
+COPY . /app/
 
 # Set environment variables for Django settings (replace as needed)
 ENV DJANGO_SETTINGS_MODULE=kidsdiy.settings
