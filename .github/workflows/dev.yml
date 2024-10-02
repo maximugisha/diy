@@ -48,4 +48,4 @@ jobs:
             sudo docker rm -f diy || true
             sudo docker system prune -af || true
             sudo docker pull  maximugisha/diy:latest || true
-            sudo docker run -d --env-file .env -p 8000:8000/tcp -v media:/app/media --name diy maximugisha/diy:latest || true
+            sudo docker run -d --env-file .env -p 8000:8000 -v media:/app/media --name diy maximugisha/diy:latest || true
