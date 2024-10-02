@@ -31,7 +31,7 @@ CSRF_TRUSTED_ORIGINS = config('CSRF_TRUSTED_ORIGINS', cast=Csv())
 SECURE_SSL_REDIRECT = config('SECURE_SSL_REDIRECT', cast=bool)
 CSRF_COOKIE_SECURE = config('CSRF_COOKIE_SECURE', cast=bool)
 SESSION_COOKIE_SECURE = config('SESSION_COOKIE_SECURE', cast=bool)
-# SECURE_PROXY_SSL_HEADER = config('SECURE_PROXY_SSL_HEADER')
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 # Application definition
 
@@ -66,7 +66,7 @@ MIDDLEWARE = [
 
 # Allow all or specific origins
 CORS_ALLOWED_ORIGINS = [
-    'http://127.0.0.1:3000', 'http://147.182.223.147:3000'
+    'http://127.0.0.1:3000', 'http://147.182.223.147:3000', "https://maxicodes.com"
 ]
 
 # If you want to allow all origins
