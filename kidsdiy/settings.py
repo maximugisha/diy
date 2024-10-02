@@ -66,7 +66,7 @@ MIDDLEWARE = [
 
 # Allow all or specific origins
 CORS_ALLOWED_ORIGINS = [
-    'http://127.0.0.1:3000', 'http://147.182.223.147:3000', "https://maxicodes.com"
+    'http://127.0.0.1:3000', 'http://147.182.223.147:3000', "https://maxicodes.com", 'https://diy-ten.vercel.app'
 ]
 
 # If you want to allow all origins
