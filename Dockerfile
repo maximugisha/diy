@@ -16,6 +16,9 @@ COPY requirements.txt .
 COPY requirements.txt /app/
 RUN pip install --upgrade pip && pip install --no-cache-dir -r requirements.txt
 
+# Create a volume for media files
+VOLUME /app/media
+
 # Copy the rest of the application code to the container
 COPY --chown=django:django . /app/
 
