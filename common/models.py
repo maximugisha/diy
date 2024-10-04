@@ -1,7 +1,7 @@
 import uuid
 from django.db import models
 from django.utils import timezone
-
+from common.utils import validate_image_extension
 
 def created_since(model):
     now = timezone.now()  # Use Django's timezone-aware current time
@@ -27,7 +27,8 @@ class ImageUpload(models.Model):
 
 class UploadedImage(models.Model):
     image_upload = models.ForeignKey(ImageUpload, related_name='images', on_delete=models.CASCADE)
-    image = models.ImageField(upload_to='uploads/')
+    image = models.ImageField(upload_to='uploads/', validators=[
+        validate_image_extension])
 
     def __str__(self):
         return str(self.image)

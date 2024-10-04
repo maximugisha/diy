@@ -2,10 +2,6 @@ from rest_framework import serializers
 from .models import ImageUpload, UploadedImage
 
 
-from rest_framework import serializers
-from .models import ImageUpload, UploadedImage
-
-
 class ImageUploadSerializer(serializers.ModelSerializer):
     images = serializers.ListField(child=serializers.ImageField(), write_only=True)
     images_url = serializers.SerializerMethodField()

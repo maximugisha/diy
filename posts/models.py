@@ -1,30 +1,9 @@
-import os
 from django.db import models
 import uuid
 from django.contrib.auth.models import User
 from common.models import ImageUpload, created_since
-from django.core.exceptions import ValidationError
 from django.utils.translation import gettext_lazy as _
-from django.conf import settings
-from djrichtextfield.models import RichTextField
-
-
-def validate_file_extension(value):
-    ext = os.path.splitext(value.name)[1]
-    valid_extensions = getattr(settings, 'ALLOWED_EXTENSIONS',
-                               ['.mp4', '.zip', '.jpeg', '.jpg', '.png', '.py', '.ino', '.txt'])
-    if not ext.lower() in valid_extensions:
-        raise ValidationError(_('Unsupported file extension.'))
-
-
-def validate_file_size(value):
-    max_size = getattr(settings, 'MAX_UPLOAD_SIZE', 2 * 1024 * 1024)  # 2 MB
-    if value.size > max_size:
-        raise ValidationError(_('File size exceeds the maximum allowed size.'))
-
-
-def get_file_extension(filename):
-    return os.path.splitext(filename)[1]
+from common.utils import validate_file_extension, validate_file_size, get_file_extension
 
 
 class BaseModel(models.Model):
