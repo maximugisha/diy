@@ -3,7 +3,7 @@ from .models import ImageUpload, UploadedImage
 
 
 class ImageUploadSerializer(serializers.ModelSerializer):
-    images = serializers.ListField(child=serializers.ImageField(), write_only=True)
+    images = serializers.ListField(child=serializers.FileField(), write_only=True)
     images_url = serializers.SerializerMethodField()
 
     class Meta:
