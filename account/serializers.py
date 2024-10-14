@@ -17,10 +17,27 @@ class InterestsSerializer(serializers.ModelSerializer):
         fields = "__all__"
 
 
+class UserSerializer(serializers.ModelSerializer):
+    first_name = serializers.CharField(required=True)
+    last_name = serializers.CharField(required=True)
+    email = serializers.CharField(required=True)
+
+    class Meta:
+        model = User
+        fields = ['username', 'email', 'password', 'first_name', 'last_name']
+        extra_kwargs = {'password': {'write_only': True}}
+
+    def create(self, validated_data):
+        user = User.objects.create_user(**validated_data)
+        return user
+
+
 class UserProfileSerializer(serializers.ModelSerializer):
+    user = UserSerializer(read_only=True)
+
     class Meta:
         model = UserProfile
-        fields = "__all__"
+        fields = ['id', 'user', 'role', 'organization', 'profile_picture', 'interests']
 
     def to_representation(self, instance):
         representation = super().to_representation(instance)
@@ -43,21 +60,6 @@ class UserProfileSerializer(serializers.ModelSerializer):
         return representation
 
 
-class UserSerializer(serializers.ModelSerializer):
-    first_name = serializers.CharField(required=True)
-    last_name = serializers.CharField(required=True)
-    email = serializers.CharField(required=True)
-
-    class Meta:
-        model = User
-        fields = ['username', 'email', 'password', 'first_name', 'last_name']
-        extra_kwargs = {'password': {'write_only': True}}
-
-    def create(self, validated_data):
-        user = User.objects.create_user(**validated_data)
-        return user
-
-
 class RoleSerializer(serializers.ModelSerializer):
     class Meta:
         model = Role
@@ -68,5 +70,3 @@ class InterestSerializer(serializers.ModelSerializer):
     class Meta:
         model = Interest
         fields = '__all__'
-
-
