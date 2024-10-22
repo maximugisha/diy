@@ -41,6 +41,7 @@ urlpatterns = [
     path('api/posts/', include('posts.urls')),
     path('api/common/', include('common.urls')),
     path('api/account/', include('account.urls')),
+    path('api/chat/', include('chat.urls')),
     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
 

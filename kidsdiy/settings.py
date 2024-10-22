@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     "common.apps.CommonConfig",
     "account.apps.AccountConfig",
     'djrichtextfield',
+    "chat.apps.ChatConfig"
 ]
 
 MIDDLEWARE = [
