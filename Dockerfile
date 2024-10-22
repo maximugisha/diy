@@ -35,4 +35,4 @@ RUN python manage.py migrate
 EXPOSE 8000
 
 # Run gunicorn with whitenoise serving static files
-CMD ["gunicorn", "--timeout 120", "--worker-class uvicorn", "--bind", "0.0.0.0:8000", "--workers", "3", "kidsdiy.wsgi:application"]
+CMD ["gunicorn", "--bind", "0.0.0.0:8000", "--workers", "3", "kidsdiy.wsgi:application"]
