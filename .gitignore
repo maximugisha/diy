@@ -8,3 +8,4 @@ static
  **/migrations/__pycache__/**
 db.sqlite3
 .docker-env
+**/__pycache__/**
